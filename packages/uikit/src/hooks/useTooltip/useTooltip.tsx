@@ -2,7 +2,7 @@ import { AnimatePresence, Variants, LazyMotion, domAnimation } from "framer-moti
 import React, { useCallback, useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import { usePopper } from "react-popper";
-import { DefaultTheme, ThemeProvider } from "styled-components";
+import { DefaultTheme, ThemeProvider, useTheme } from "styled-components";
 import { dark, light } from "../../theme";
 import getPortalRoot from "../../util/getPortalRoot";
 import isTouchDevice from "../../util/isTouchDevice";
@@ -28,7 +28,8 @@ const invertTheme = (currentTheme: DefaultTheme) => {
   return dark;
 };
 
-const useTooltip = (content: React.ReactNode, options: TooltipOptions): TooltipRefs => {
+const useTooltip = (content: React.ReactNode, options?: TooltipOptions): TooltipRefs => {
+  const { isDark } = useTheme();
   const {
     placement = "auto",
     trigger = "hover",
@@ -36,12 +37,13 @@ const useTooltip = (content: React.ReactNode, options: TooltipOptions): TooltipR
     tooltipPadding = { left: 16, right: 16 },
     tooltipOffset = [0, 10],
     hideTimeout = 100,
-  } = options;
+    manualVisible = false,
+  } = options || {};
   const [targetElement, setTargetElement] = useState<HTMLElement | null>(null);
   const [tooltipElement, setTooltipElement] = useState<HTMLElement | null>(null);
   const [arrowElement, setArrowElement] = useState<HTMLElement | null>(null);
 
-  const [visible, setVisible] = useState(false);
+  const [visible, setVisible] = useState(manualVisible);
   const isHoveringOverTooltip = useRef(false);
   const hideTimeoutRef = useRef<number>();
 
@@ -76,8 +78,6 @@ const useTooltip = (content: React.ReactNode, options: TooltipOptions): TooltipR
 
   const showTooltip = useCallback(
     (e: Event) => {
-      e.stopPropagation();
-      e.preventDefault();
       setVisible(true);
       if (trigger === "hover") {
         if (e.target === targetElement) {
@@ -89,6 +89,8 @@ const useTooltip = (content: React.ReactNode, options: TooltipOptions): TooltipR
           isHoveringOverTooltip.current = true;
         }
       }
+      e.stopPropagation();
+      e.preventDefault();
     },
     [tooltipElement, targetElement, trigger]
   );
@@ -103,7 +105,7 @@ const useTooltip = (content: React.ReactNode, options: TooltipOptions): TooltipR
 
   // Trigger = hover
   useEffect(() => {
-    if (targetElement === null || trigger !== "hover") return undefined;
+    if (targetElement === null || trigger !== "hover" || manualVisible) return undefined;
 
     if (isTouchDevice()) {
       targetElement.addEventListener("touchstart", showTooltip);
@@ -118,11 +120,11 @@ const useTooltip = (content: React.ReactNode, options: TooltipOptions): TooltipR
       targetElement.removeEventListener("mouseenter", showTooltip);
       targetElement.removeEventListener("mouseleave", showTooltip);
     };
-  }, [trigger, targetElement, hideTooltip, showTooltip]);
+  }, [trigger, targetElement, hideTooltip, showTooltip, manualVisible]);
 
   // Keep tooltip open when cursor moves from the targetElement to the tooltip
   useEffect(() => {
-    if (tooltipElement === null || trigger !== "hover") return undefined;
+    if (tooltipElement === null || trigger !== "hover" || manualVisible) return undefined;
 
     tooltipElement.addEventListener("mouseenter", showTooltip);
     tooltipElement.addEventListener("mouseleave", hideTooltip);
@@ -130,7 +132,7 @@ const useTooltip = (content: React.ReactNode, options: TooltipOptions): TooltipR
       tooltipElement.removeEventListener("mouseenter", showTooltip);
       tooltipElement.removeEventListener("mouseleave", hideTooltip);
     };
-  }, [trigger, tooltipElement, hideTooltip, showTooltip]);
+  }, [trigger, tooltipElement, hideTooltip, showTooltip, manualVisible]);
 
   // Trigger = click
   useEffect(() => {
@@ -198,6 +200,7 @@ const useTooltip = (content: React.ReactNode, options: TooltipOptions): TooltipR
 
   const tooltip = (
     <StyledTooltip
+      data-theme={isDark ? "light" : "dark"}
       {...animationMap}
       variants={animationVariants}
       transition={{ duration: 0.3 }}
