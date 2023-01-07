@@ -36,7 +36,7 @@ const ExpandButtonGroup = styled(Flex)`
   position: absolute;
   display: none;
   background-color: ${({ theme }) => theme.colors.input};
-  border-radius: 24px 24px 0 0;
+  border-radius: 20px 0;
   z-index: 50;
   ${({ theme }) => theme.mediaQueries.lg} {
     display: inline-flex;

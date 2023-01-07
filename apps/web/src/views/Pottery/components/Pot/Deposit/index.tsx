@@ -131,7 +131,11 @@ const Deposit: React.FC<React.PropsWithChildren> = () => {
         </Flex>
       </Container>
       <CardAction>
-        {account ? <DepositAction totalValueLockedValue={totalValueLocked} /> : <ConnectWalletButton />}
+        {account ? (
+          <DepositAction totalValueLockedValue={totalValueLocked} />
+        ) : (
+          <ConnectWalletButton variant="gradientRedGrape" />
+        )}
       </CardAction>
     </Box>
   )

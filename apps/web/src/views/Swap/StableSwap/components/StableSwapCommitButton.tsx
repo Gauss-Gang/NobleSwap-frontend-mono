@@ -166,7 +166,7 @@ export default function StableSwapCommitButton({
   }, [indirectlyOpenConfirmModalState, onPresentConfirmModal, setSwapState])
 
   if (!account) {
-    return <ConnectWalletButton width="100%" />
+    return <ConnectWalletButton width="100%" variant="gradientRedGrape" />
   }
 
   const isSufficentLiquidity = false

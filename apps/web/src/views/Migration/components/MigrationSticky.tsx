@@ -83,7 +83,7 @@ const MigrationSticky: React.FC<React.PropsWithChildren<MigrationStickyProps>> =
           <TextTitle bold>{t('MasterChef v2 Migration')}</TextTitle>
           <TextSubTitle>{t('Please connect wallet to check your pools & farms status.')}</TextSubTitle>
         </TextGroup>
-        <ConnectWalletButton width={isMobile ? '131px' : '178px'} />
+        <ConnectWalletButton width={isMobile ? '131px' : '178px'} variant="gradientRedGrape" />
       </Container>
     )
   }

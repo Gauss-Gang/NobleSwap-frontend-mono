@@ -123,19 +123,12 @@ export const SellingNftTag: React.FC<React.PropsWithChildren<NftTagProps>> = (pr
 }
 
 export const StyledCollectibleCard = styled(Card)`
-  border-radius: 8px;
+  border-radius: 20px 0;
   max-width: 320px;
   transition: opacity 200ms;
 
   & > div {
-    border-radius: 8px;
-  }
-
-  ${({ theme }) => theme.mediaQueries.lg} {
-    &:hover {
-      cursor: pointer;
-      opacity: 0.6;
-    }
+    border-radius: 0px;
   }
 `
 interface LowestPriceMetaRowProps {

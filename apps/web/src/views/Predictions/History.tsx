@@ -81,7 +81,7 @@ const History = () => {
   if (!account) {
     activeTabComponent = (
       <Flex justifyContent="center" alignItems="center" flexDirection="column" mt="32px">
-        <ConnectWalletButton />
+        <ConnectWalletButton variant="gradientRedGrape" />
         <Text mt="8px">{t('Connect your wallet to view your prediction history')}</Text>
       </Flex>
     )

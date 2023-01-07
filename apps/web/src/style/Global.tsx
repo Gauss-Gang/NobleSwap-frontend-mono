@@ -11,7 +11,20 @@ const GlobalStyle = createGlobalStyle`
     font-family: 'Kanit', sans-serif;
   }
   body {
-    background-color: ${({ theme }) => theme.colors.background};
+    // background-color: ${({ theme }) => theme.colors.background};
+    background: linear-gradient(90deg, #001463, #0235BE, #003FDF, #0235BE, #001463);
+    background-repeat: repeat;
+    background-position: top;
+    position: relative;
+    background-size: 100%;
+
+    .noble__background {
+      position: fixed;
+      min-height: 100vh;
+      inset: 0;
+      z-index: -2;
+      opacity: 0.9;
+    }
 
     img {
       height: auto;

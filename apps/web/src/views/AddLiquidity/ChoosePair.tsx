@@ -84,7 +84,7 @@ export function ChoosePair({
       </CardBody>
       <CardFooter>
         {!account ? (
-          <ConnectWalletButton width="100%" />
+          <ConnectWalletButton width="100%" variant="gradientRedGrape" />
         ) : (
           <CommitButton
             data-test="choose-pair-next"

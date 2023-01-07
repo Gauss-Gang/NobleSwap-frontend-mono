@@ -447,7 +447,7 @@ const BuyTicketsModal: React.FC<React.PropsWithChildren<BuyTicketsModalProps>> =
             )}
           </>
         ) : (
-          <ConnectWalletButton />
+          <ConnectWalletButton variant="gradientRedGrape" />
         )}
 
         <Text mt="24px" fontSize="12px" color="textSubtle">

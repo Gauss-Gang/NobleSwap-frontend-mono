@@ -2,9 +2,10 @@ import styled from "styled-components";
 import { Box, Flex } from "../Box";
 
 export const InlineMenuContainer = styled(Box)`
-  background-color: ${({ theme }) => theme.colors.backgroundAlt};
-  border-radius: ${({ theme }) => theme.radii.card};
-  box-shadow: ${({ theme }) => theme.shadows.tooltip};
+  background-color: ${({ theme }) => theme.colors.nobleDarkBlue};
+  border-radius: 20px 0;
+  box-shadow: ${({ theme }) => theme.colors.nobleLightBlue};
+  border: 1px solid ${({ theme }) => theme.colors.nobleLightBlue};
 `;
 
 export const SubMenuContainer = styled(Flex)`

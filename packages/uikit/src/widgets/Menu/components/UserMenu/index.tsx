@@ -3,9 +3,8 @@ import { usePopper } from "react-popper";
 import styled from "styled-components";
 import { Box, Flex } from "../../../../components/Box";
 import { ChevronDownIcon } from "../../../../components/Svg";
-import { UserMenuProps, variants } from "./types";
 import MenuIcon from "./MenuIcon";
-import { UserMenuItem } from "./styles";
+import { UserMenuProps, variants } from "./types";
 
 export const StyledUserMenu = styled(Flex)`
   align-items: center;
@@ -37,11 +36,9 @@ export const LabelText = styled.div`
 `;
 
 const Menu = styled.div<{ isOpen: boolean }>`
-  background-color: ${({ theme }) => theme.card.background};
-  border: 1px solid ${({ theme }) => theme.colors.cardBorder};
-  border-radius: 16px;
-  padding-bottom: 4px;
-  padding-top: 4px;
+  background-color: ${({ theme }) => theme.colors.nobleDarkBlue};
+  border: 1px solid ${({ theme }) => theme.colors.nobleLightBlue};
+  border-radius: 20px 0;
   pointer-events: auto;
   width: 280px;
   visibility: visible;
@@ -53,14 +50,6 @@ const Menu = styled.div<{ isOpen: boolean }>`
     pointer-events: none;
     visibility: hidden;
   `}
-
-  ${UserMenuItem}:first-child {
-    border-radius: 8px 8px 0 0;
-  }
-
-  ${UserMenuItem}:last-child {
-    border-radius: 0 0 8px 8px;
-  }
 `;
 
 const UserMenu: React.FC<UserMenuProps> = ({

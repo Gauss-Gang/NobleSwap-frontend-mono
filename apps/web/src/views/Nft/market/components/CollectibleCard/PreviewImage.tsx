@@ -13,7 +13,7 @@ const PreviewImage: React.FC<React.PropsWithChildren<PreviewImageProps>> = ({ he
       loadingPlaceholder={<PlaceholderImage />}
       height={height}
       width={width}
-      style={{ borderRadius: '8px' }}
+      style={{ borderRadius: '20px 0' }}
       {...props}
     />
   )

@@ -98,7 +98,7 @@ const Vote: React.FC<React.PropsWithChildren<VoteProps>> = ({ proposal, onSucces
             {t('Cast Vote')}
           </Button>
         ) : (
-          <ConnectWalletButton />
+          <ConnectWalletButton variant="gradientRedGrape" />
         )}
       </CardBody>
     </Card>

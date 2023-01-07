@@ -1,9 +1,10 @@
 import '@pancakeswap/ui/css/reset.css'
-import { ResetCSS, ToastListener, ScrollToTopButtonV2 } from '@pancakeswap/uikit'
+import { ResetCSS, ScrollToTopButtonV2, ToastListener } from '@pancakeswap/uikit'
 import BigNumber from 'bignumber.js'
 import GlobalCheckClaimStatus from 'components/GlobalCheckClaimStatus'
 import { NetworkModal } from 'components/NetworkModal'
 import { FixedSubgraphHealthIndicator } from 'components/SubgraphHealthIndicator/FixedSubgraphHealthIndicator'
+import TransactionsDetailModal from 'components/TransactionDetailModal'
 import { useAccountEventListener } from 'hooks/useAccountEventListener'
 import useEagerConnect from 'hooks/useEagerConnect'
 import useEagerConnectMP from 'hooks/useEagerConnect.bmp'
@@ -12,21 +13,34 @@ import useThemeCookie from 'hooks/useThemeCookie'
 import useUserAgent from 'hooks/useUserAgent'
 import { NextPage } from 'next'
 import type { AppProps } from 'next/app'
-import dynamic from 'next/dynamic'
 import Head from 'next/head'
+import Image from 'next/image'
 import Script from 'next/script'
 import { Fragment } from 'react'
 import { PersistGate } from 'redux-persist/integration/react'
 import { persistor, useStore } from 'state'
 import { usePollBlockNumber } from 'state/block/hooks'
-import TransactionsDetailModal from 'components/TransactionDetailModal'
+import styled from 'styled-components'
 import { Blocklist, Updaters } from '..'
+import NobleSwapBg from '../../public/images/backgrounds/noble_swap_bg.png'
+import NobleSwapLogo from '../../public/images/noble_swap_logo.png'
+import Providers from '../Providers'
 import { SentryErrorBoundary } from '../components/ErrorBoundary'
 import Menu from '../components/Menu'
-import Providers from '../Providers'
 import GlobalStyle from '../style/Global'
 
-const EasterEgg = dynamic(() => import('components/EasterEgg'), { ssr: false })
+const NobleBackgroundLogo = styled.div`
+  position: absolute;
+  top: 15%;
+  left: 18%;
+  z-index: -1;
+
+  ${({ theme }) => theme.mediaQueries.md} {
+    top: 27%;
+  }
+`
+
+// const EasterEgg = dynamic(() => import('components/EasterEgg'), { ssr: false })
 
 // This config is required for number formatting
 BigNumber.config({
@@ -64,19 +78,22 @@ function MyApp(props: AppProps<{ initialReduxState: any }>) {
           name="viewport"
           content="width=device-width, initial-scale=1, maximum-scale=5, minimum-scale=1, viewport-fit=cover"
         />
+
+        {/* @NOBLE TODO - Change the descriptions and links to Noble Swap */}
         <meta
           name="description"
           content="Cheaper and faster than Uniswap? Discover PancakeSwap, the leading DEX on BNB Smart Chain (BSC) with the best farms in DeFi and a lottery for CAKE."
         />
         <meta name="theme-color" content="#1FC7D4" />
-        <meta name="twitter:image" content="https://pancakeswap.finance/images/hero.png" />
+        {/* @NOBLE TODO - Change the URL to live one */}
+        <meta name="twitter:image" content="http://localhost:3000/images/noble_swap_link.jpg" />
         <meta
           name="twitter:description"
           content="The most popular AMM on BSC! Earn CAKE through yield farming or win it in the Lottery, then stake it in Syrup Pools to earn more tokens! Initial Farm Offerings (new token launch model pioneered by PancakeSwap), NFTs, and more, on a platform you can trust."
         />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="🥞 PancakeSwap - A next evolution DeFi exchange on BNB Smart Chain (BSC)" />
-        <title>PancakeSwap</title>
+        <title>NobleSwap</title>
         {(Component as NextPageWithLayout).mp && (
           // eslint-disable-next-line @next/next/no-sync-scripts
           <script src="https://public.bnbstatic.com/static/js/mp-webview-sdk/webview-v1.0.0.min.js" id="mp-webview" />
@@ -148,9 +165,15 @@ const App = ({ Component, pageProps }: AppPropsWithLayout) => {
           <Component {...pageProps} />
         </Layout>
       </ShowMenu>
-      <EasterEgg iterations={2} />
+      {/* <EasterEgg iterations={2} /> */}
       <ToastListener />
       <FixedSubgraphHealthIndicator />
+      <NobleBackgroundLogo>
+        <Image src={NobleSwapLogo} width={258} height={473} alt="noble_swap_logo" />
+      </NobleBackgroundLogo>
+      <div className="noble__background">
+        <Image src={NobleSwapBg} layout="fill" quality={100} alt="noble_swap_background" />
+      </div>
       <NetworkModal pageSupportedChains={Component.chains} />
       <TransactionsDetailModal />
       {isShowScrollToTopButton && <ScrollToTopButtonV2 />}

@@ -95,7 +95,7 @@ const Pools: React.FC<React.PropsWithChildren> = () => {
                               <Text mb="10px" textTransform="uppercase" fontSize="12px" color="textSubtle" bold>
                                 {t('Start earning')}
                               </Text>
-                              <ConnectWalletButton />
+                              <ConnectWalletButton variant="gradientRedGrape" />
                             </>
                           )
                         }

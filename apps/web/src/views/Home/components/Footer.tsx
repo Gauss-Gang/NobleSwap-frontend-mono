@@ -116,7 +116,7 @@ const Footer = () => {
         <Link external href="https://docs.pancakeswap.finance/">
           {t('Learn how to start')}
         </Link>
-        {!account && <ConnectWalletButton mt="24px" />}
+        {!account && <ConnectWalletButton mt="24px" variant="gradientRedGrape" />}
       </Wrapper>
     </>
   )

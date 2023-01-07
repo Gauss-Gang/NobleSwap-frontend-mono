@@ -12,6 +12,8 @@ import {
   TooltipText,
   useTooltip,
   MessageText,
+  Box,
+  Flex,
 } from '@pancakeswap/uikit'
 import { logError } from 'utils/sentry'
 import { useIsTransactionUnsupported, useIsTransactionWarning } from 'hooks/Trades'
@@ -578,7 +580,7 @@ export default function AddLiquidity({ currencyA, currencyB }) {
 
   return (
     <Page>
-      <AppBody>
+      <AppBody maxWidth={640}>
         {!showAddLiquidity && (
           <ChoosePair
             error={error}
@@ -616,81 +618,94 @@ export default function AddLiquidity({ currencyA, currencyB }) {
                     </Message>
                   </ColumnCenter>
                 )}
-                <CurrencyInputPanel
-                  disableCurrencySelect={canZap}
-                  showBUSD
-                  onInputBlur={canZap ? zapIn.onInputBlurOnce : undefined}
-                  error={zapIn.priceSeverity > 3 && zapIn.swapTokenField === Field.CURRENCY_A}
-                  disabled={canZap && !zapTokenCheckedA}
-                  beforeButton={
-                    canZap && (
-                      <ZapCheckbox
-                        disabled={currencyBalances?.[Field.CURRENCY_A]?.equalTo(0)}
-                        checked={zapTokenCheckedA}
-                        onChange={(e) => {
-                          setZapTokenToggleA(e.target.checked)
-                        }}
-                      />
-                    )
-                  }
-                  onCurrencySelect={handleCurrencyASelect}
-                  zapStyle={canZap ? 'zap' : 'noZap'}
-                  value={formattedAmounts[Field.CURRENCY_A]}
-                  onUserInput={onFieldAInput}
-                  onPercentInput={(percent) => {
-                    if (maxAmounts[Field.CURRENCY_A]) {
-                      onFieldAInput(maxAmounts[Field.CURRENCY_A]?.multiply(new Percent(percent, 100)).toExact() ?? '')
-                    }
-                  }}
-                  onMax={() => {
-                    onFieldAInput(maxAmounts[Field.CURRENCY_A]?.toExact() ?? '')
-                  }}
-                  showQuickInputButton
-                  showMaxButton={!atMaxAmounts[Field.CURRENCY_A]}
-                  currency={currencies[Field.CURRENCY_A]}
-                  id="add-liquidity-input-tokena"
-                  showCommonBases
-                  commonBasesType={CommonBasesType.LIQUIDITY}
-                />
-                <ColumnCenter>
-                  <AddIcon width="16px" />
-                </ColumnCenter>
-                <CurrencyInputPanel
-                  showBUSD
-                  onInputBlur={canZap ? zapIn.onInputBlurOnce : undefined}
-                  disabled={canZap && !zapTokenCheckedB}
-                  error={zapIn.priceSeverity > 3 && zapIn.swapTokenField === Field.CURRENCY_B}
-                  beforeButton={
-                    canZap && (
-                      <ZapCheckbox
-                        disabled={currencyBalances?.[Field.CURRENCY_B]?.equalTo(0)}
-                        checked={zapTokenCheckedB}
-                        onChange={(e) => {
-                          setZapTokenToggleB(e.target.checked)
-                        }}
-                      />
-                    )
-                  }
-                  onCurrencySelect={handleCurrencyBSelect}
-                  disableCurrencySelect={canZap}
-                  zapStyle={canZap ? 'zap' : 'noZap'}
-                  value={formattedAmounts[Field.CURRENCY_B]}
-                  onUserInput={onFieldBInput}
-                  onPercentInput={(percent) => {
-                    if (maxAmounts[Field.CURRENCY_B]) {
-                      onFieldBInput(maxAmounts[Field.CURRENCY_B]?.multiply(new Percent(percent, 100)).toExact() ?? '')
-                    }
-                  }}
-                  onMax={() => {
-                    onFieldBInput(maxAmounts[Field.CURRENCY_B]?.toExact() ?? '')
-                  }}
-                  showQuickInputButton
-                  showMaxButton={!atMaxAmounts[Field.CURRENCY_B]}
-                  currency={currencies[Field.CURRENCY_B]}
-                  id="add-liquidity-input-tokenb"
-                  showCommonBases
-                  commonBasesType={CommonBasesType.LIQUIDITY}
-                />
+
+                <Flex alignItems="center" my="80px" flexDirection={['column', 'column', 'row']}>
+                  <Box width="100%">
+                    <CurrencyInputPanel
+                      disableCurrencySelect={canZap}
+                      showBUSD
+                      onInputBlur={canZap ? zapIn.onInputBlurOnce : undefined}
+                      error={zapIn.priceSeverity > 3 && zapIn.swapTokenField === Field.CURRENCY_A}
+                      disabled={canZap && !zapTokenCheckedA}
+                      beforeButton={
+                        canZap && (
+                          <ZapCheckbox
+                            disabled={currencyBalances?.[Field.CURRENCY_A]?.equalTo(0)}
+                            checked={zapTokenCheckedA}
+                            onChange={(e) => {
+                              setZapTokenToggleA(e.target.checked)
+                            }}
+                          />
+                        )
+                      }
+                      onCurrencySelect={handleCurrencyASelect}
+                      zapStyle={canZap ? 'zap' : 'noZap'}
+                      value={formattedAmounts[Field.CURRENCY_A]}
+                      onUserInput={onFieldAInput}
+                      onPercentInput={(percent) => {
+                        if (maxAmounts[Field.CURRENCY_A]) {
+                          onFieldAInput(
+                            maxAmounts[Field.CURRENCY_A]?.multiply(new Percent(percent, 100)).toExact() ?? '',
+                          )
+                        }
+                      }}
+                      onMax={() => {
+                        onFieldAInput(maxAmounts[Field.CURRENCY_A]?.toExact() ?? '')
+                      }}
+                      showQuickInputButton
+                      showMaxButton={!atMaxAmounts[Field.CURRENCY_A]}
+                      currency={currencies[Field.CURRENCY_A]}
+                      id="add-liquidity-input-tokena"
+                      showCommonBases
+                      commonBasesType={CommonBasesType.LIQUIDITY}
+                    />
+                  </Box>
+
+                  <ColumnCenter>
+                    <AddIcon width="16px" />
+                  </ColumnCenter>
+
+                  <Box width="100%">
+                    <CurrencyInputPanel
+                      showBUSD
+                      onInputBlur={canZap ? zapIn.onInputBlurOnce : undefined}
+                      disabled={canZap && !zapTokenCheckedB}
+                      error={zapIn.priceSeverity > 3 && zapIn.swapTokenField === Field.CURRENCY_B}
+                      beforeButton={
+                        canZap && (
+                          <ZapCheckbox
+                            disabled={currencyBalances?.[Field.CURRENCY_B]?.equalTo(0)}
+                            checked={zapTokenCheckedB}
+                            onChange={(e) => {
+                              setZapTokenToggleB(e.target.checked)
+                            }}
+                          />
+                        )
+                      }
+                      onCurrencySelect={handleCurrencyBSelect}
+                      disableCurrencySelect={canZap}
+                      zapStyle={canZap ? 'zap' : 'noZap'}
+                      value={formattedAmounts[Field.CURRENCY_B]}
+                      onUserInput={onFieldBInput}
+                      onPercentInput={(percent) => {
+                        if (maxAmounts[Field.CURRENCY_B]) {
+                          onFieldBInput(
+                            maxAmounts[Field.CURRENCY_B]?.multiply(new Percent(percent, 100)).toExact() ?? '',
+                          )
+                        }
+                      }}
+                      onMax={() => {
+                        onFieldBInput(maxAmounts[Field.CURRENCY_B]?.toExact() ?? '')
+                      }}
+                      showQuickInputButton
+                      showMaxButton={!atMaxAmounts[Field.CURRENCY_B]}
+                      currency={currencies[Field.CURRENCY_B]}
+                      id="add-liquidity-input-tokenb"
+                      showCommonBases
+                      commonBasesType={CommonBasesType.LIQUIDITY}
+                    />
+                  </Box>
+                </Flex>
 
                 {showZapWarning && (
                   <Message variant={zapIn.priceSeverity > 3 ? 'danger' : 'warning'}>
@@ -824,7 +839,7 @@ export default function AddLiquidity({ currencyA, currencyB }) {
                     {t('Unsupported Asset')}
                   </Button>
                 ) : !account ? (
-                  <ConnectWalletButton />
+                  <ConnectWalletButton variant="gradientRedGrape" />
                 ) : isWrongNetwork ? (
                   <CommitButton />
                 ) : (

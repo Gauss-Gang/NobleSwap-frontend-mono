@@ -28,7 +28,7 @@ const ActivityEventText: React.FC<React.PropsWithChildren<ActivityEventTextProps
     },
     [MarketEvent.SELL]: {
       text: t('Sold'),
-      color: 'failure',
+      color: 'nobleRed',
     },
   }
 

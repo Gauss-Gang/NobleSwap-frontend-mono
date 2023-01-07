@@ -92,9 +92,15 @@ const Chart = ({ data, setHoverValue, setHoverDate }: LineChartProps) => {
         />
         <Bar
           dataKey="value"
-          fill={theme.colors.primary}
+          fill={theme.colors.nobleGreen}
           shape={(props) => (
-            <CustomBar height={props.height} width={props.width} x={props.x} y={props.y} fill={theme.colors.primary} />
+            <CustomBar
+              height={props.height}
+              width={props.width}
+              x={props.x}
+              y={props.y}
+              fill={theme.colors.nobleGreen}
+            />
           )}
         />
       </BarChart>

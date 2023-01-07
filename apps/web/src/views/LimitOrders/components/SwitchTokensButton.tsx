@@ -23,7 +23,7 @@ const StyledButton = styled(IconButton)`
 `
 
 interface SwitchIconButtonProps {
-  color: 'primary' | 'text'
+  color: 'primary' | 'text' | 'secondary'
   handleSwitchTokens: () => void
 }
 

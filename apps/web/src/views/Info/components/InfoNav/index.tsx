@@ -23,13 +23,13 @@ import { useAccount } from 'wagmi'
 import { bsc, mainnet } from '@pancakeswap/wagmi/chains'
 
 const NavWrapper = styled(Flex)`
-  background: ${({ theme }) => theme.colors.gradientCardHeader};
+  background: ${({ theme }) => theme.colors.gradientNobleDarkBlue};
   justify-content: space-between;
-  padding: 20px 16px;
+  padding: 60px 16px;
   flex-direction: column;
   gap: 8px;
   ${({ theme }) => theme.mediaQueries.sm} {
-    padding: 20px 40px;
+    padding: 60px 40px;
     flex-direction: row;
   }
 `

@@ -9,6 +9,10 @@ interface ToggleViewProps {
   onToggle: (mode: ViewMode) => void
 }
 
+const StyledIconButton = styled(IconButton)`
+  background: ${({ theme, isActive }) => isActive && theme.colors.noblePurple};
+`
+
 const Container = styled.div`
   margin-left: -8px;
 
@@ -36,12 +40,31 @@ const ToggleView: React.FunctionComponent<React.PropsWithChildren<ToggleViewProp
 
   return (
     <Container>
-      <IconButton variant="text" scale="sm" id={`${idPrefix}CardView`} onClick={handleToggleCard}>
+      <StyledIconButton
+        isActive={viewMode === ViewMode.CARD}
+        variant="text"
+        scale="sm"
+        id={`${idPrefix}CardView`}
+        onClick={handleToggleCard}
+      >
+        <CardViewIcon color={viewMode === ViewMode.CARD ? 'secondary' : 'textDisabled'} />
+      </StyledIconButton>
+      <StyledIconButton
+        isActive={viewMode === ViewMode.TABLE}
+        variant="text"
+        scale="sm"
+        id={`${idPrefix}TableView`}
+        onClick={handleToggleTable}
+      >
+        <ListViewIcon color={viewMode === ViewMode.TABLE ? 'secondary' : 'textDisabled'} />
+      </StyledIconButton>
+
+      {/* <IconButton variant="text" scale="sm" id={`${idPrefix}CardView`} onClick={handleToggleCard}>
         <CardViewIcon color={viewMode === ViewMode.CARD ? 'primary' : 'textDisabled'} />
       </IconButton>
       <IconButton variant="text" scale="sm" id={`${idPrefix}TableView`} onClick={handleToggleTable}>
         <ListViewIcon color={viewMode === ViewMode.TABLE ? 'primary' : 'textDisabled'} />
-      </IconButton>
+      </IconButton> */}
     </Container>
   )
 }

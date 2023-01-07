@@ -1,5 +1,5 @@
 import { useMemo } from 'react'
-import { Card, Text, BunnyPlaceholderIcon, Box } from '@pancakeswap/uikit'
+import { Card, Text, NobleSwapPlaceholder, Box } from '@pancakeswap/uikit'
 import { useTranslation } from '@pancakeswap/localization'
 import styled from 'styled-components'
 import { PoolIds } from 'config/constants/types'
@@ -75,7 +75,7 @@ export default function ComingSoonSection() {
             tooltip={basicConfig?.tooltip}
             content={
               <>
-                <BunnyPlaceholderIcon width={80} mb="16px" />
+                <NobleSwapPlaceholder width={80} mb="16px" />
                 <Text textAlign="center" fontWeight={600}>
                   {t('Follow our social channels to learn more about the next IFO.')}
                 </Text>

@@ -39,7 +39,7 @@ const IfoCardActions: React.FC<React.PropsWithChildren<Props>> = ({
   }
 
   if (!account) {
-    return <ConnectWalletButton width="100%" />
+    return <ConnectWalletButton width="100%" variant="gradientRedGrape" />
   }
 
   if (!hasProfile) {

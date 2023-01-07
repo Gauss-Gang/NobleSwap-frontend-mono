@@ -9,7 +9,7 @@ import {
   useTooltip,
   Button,
   AutoRenewIcon,
-  BunnyPlaceholderIcon,
+  NobleSwapPlaceholder,
   Message,
   MessageText,
   ErrorIcon,
@@ -46,7 +46,7 @@ const TokenSection: React.FC<React.PropsWithChildren<TokenSectionProps>> = ({
 }) => {
   const renderTokenComponent = () => {
     if (!primaryToken) {
-      return <BunnyPlaceholderIcon width={32} mr="16px" />
+      return <NobleSwapPlaceholder width={32} mr="16px" />
     }
 
     if (primaryToken && secondaryToken) {
@@ -336,7 +336,7 @@ const IfoCardTokens: React.FC<React.PropsWithChildren<IfoCardTokensProps>> = ({
     if (publicIfoData.status === 'finished') {
       return amountTokenCommittedInLP.isEqualTo(0) ? (
         <Flex flexDirection="column" alignItems="center">
-          <BunnyPlaceholderIcon width={80} mb="16px" />
+          <NobleSwapPlaceholder width={80} mb="16px" />
           <Text fontWeight={600}>{t('You didn’t participate in this sale!')}</Text>
           {ifov31Msg || (
             <>

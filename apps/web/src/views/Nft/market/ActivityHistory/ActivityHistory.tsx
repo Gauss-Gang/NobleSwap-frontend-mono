@@ -1,32 +1,34 @@
-import { useEffect, useState } from 'react'
-import { isAddress } from 'utils'
-import { useAppDispatch } from 'state'
+import { useLastUpdated } from '@pancakeswap/hooks'
+import { useTranslation } from '@pancakeswap/localization'
+import { additionalColors } from '@pancakeswap/ui/tokens/colors'
 import {
   ArrowBackIcon,
   ArrowForwardIcon,
   Box,
   Button,
+  Card,
   Flex,
   Table,
   Text,
   Th,
   useMatchBreakpoints,
 } from '@pancakeswap/uikit'
-import { getCollectionActivity } from 'state/nftMarket/helpers'
 import Container from 'components/Layout/Container'
 import TableLoader from 'components/TableLoader'
-import { Activity, Collection, NftToken } from 'state/nftMarket/types'
-import { useTranslation } from '@pancakeswap/localization'
 import { useBNBBusdPrice } from 'hooks/useBUSDPrice'
 import useTheme from 'hooks/useTheme'
-import { useLastUpdated } from '@pancakeswap/hooks'
+import { useEffect, useState } from 'react'
+import { useAppDispatch } from 'state'
+import { getCollectionActivity } from 'state/nftMarket/helpers'
 import { useGetNftActivityFilters } from 'state/nftMarket/hooks'
-import { Arrow, PageButtons } from '../components/PaginationButtons'
-import NoNftsImage from '../components/Activity/NoNftsImage'
-import ActivityFilters from './ActivityFilters'
+import { Activity, Collection, NftToken } from 'state/nftMarket/types'
+import { isAddress } from 'utils'
 import ActivityRow from '../components/Activity/ActivityRow'
-import { sortActivity } from './utils/sortActivity'
+import NoNftsImage from '../components/Activity/NoNftsImage'
+import { Arrow, PageButtons } from '../components/PaginationButtons'
+import ActivityFilters from './ActivityFilters'
 import { fetchActivityNftMetadata } from './utils/fetchActivityNftMetadata'
+import { sortActivity } from './utils/sortActivity'
 
 const MAX_PER_PAGE = 8
 
@@ -188,7 +190,7 @@ const ActivityHistory: React.FC<React.PropsWithChildren<ActivityHistoryProps>> =
 
   return (
     <Box py="32px">
-      <Container px={[0, null, '24px']}>
+      <Container px={[0, null, '24px']} mb="20px">
         <Flex
           style={{ gap: '16px', padding: '0 16px' }}
           alignItems={[null, null, 'center']}
@@ -208,58 +210,60 @@ const ActivityHistory: React.FC<React.PropsWithChildren<ActivityHistoryProps>> =
           </Button>
         </Flex>
       </Container>
-      <Container style={{ overflowX: 'auto' }}>
-        {marketHistoryNotFound ? (
-          <Flex p="24px" flexDirection="column" alignItems="center">
-            <NoNftsImage />
-            <Text pt="8px" bold>
-              {t('No NFT market history found')}
-            </Text>
-          </Flex>
-        ) : (
-          <>
-            <Table>
-              <thead>
-                <tr>
-                  <Th textAlign={['center', null, 'left']}> {t('Item')}</Th>
-                  <Th textAlign="right"> {t('Event')}</Th>
-                  {isXs || isSm ? null : (
-                    <>
-                      <Th textAlign="right"> {t('Price')}</Th>
-                      <Th textAlign="center"> {t('From')}</Th>
-                      <Th textAlign="center"> {t('To')}</Th>
-                    </>
-                  )}
-                  <Th textAlign="center"> {t('Date')}</Th>
-                  {isXs || isSm ? null : <Th />}
-                </tr>
-              </thead>
+      <Card background={additionalColors.nobleDarkBlue} borderBackground="none">
+        <Container style={{ overflowX: 'auto' }}>
+          {marketHistoryNotFound ? (
+            <Flex p="24px" flexDirection="column" alignItems="center">
+              <NoNftsImage />
+              <Text pt="8px" bold>
+                {t('No NFT market history found')}
+              </Text>
+            </Flex>
+          ) : (
+            <>
+              <Table>
+                <thead>
+                  <tr>
+                    <Th textAlign={['center', null, 'left']}> {t('Item')}</Th>
+                    <Th textAlign="right"> {t('Event')}</Th>
+                    {isXs || isSm ? null : (
+                      <>
+                        <Th textAlign="right"> {t('Price')}</Th>
+                        <Th textAlign="center"> {t('From')}</Th>
+                        <Th textAlign="center"> {t('To')}</Th>
+                      </>
+                    )}
+                    <Th textAlign="center"> {t('Date')}</Th>
+                    {isXs || isSm ? null : <Th />}
+                  </tr>
+                </thead>
 
-              <tbody>
-                {!isInitialized ? (
-                  <TableLoader />
-                ) : (
-                  activitiesSlice.map((activity) => {
-                    const nftMeta = nftMetadata.find(
-                      (metaNft) =>
-                        metaNft.tokenId === activity.nft.tokenId &&
-                        isAddress(metaNft.collectionAddress) === isAddress(activity.nft?.collection.id),
-                    )
-                    return (
-                      <ActivityRow
-                        key={`${activity.marketEvent}#${activity.nft.tokenId}#${activity.timestamp}#${activity.tx}`}
-                        activity={activity}
-                        nft={nftMeta}
-                        bnbBusdPrice={bnbBusdPrice}
-                      />
-                    )
-                  })
-                )}
-              </tbody>
-            </Table>
-          </>
-        )}
-      </Container>
+                <tbody>
+                  {!isInitialized ? (
+                    <TableLoader />
+                  ) : (
+                    activitiesSlice.map((activity) => {
+                      const nftMeta = nftMetadata.find(
+                        (metaNft) =>
+                          metaNft.tokenId === activity.nft.tokenId &&
+                          isAddress(metaNft.collectionAddress) === isAddress(activity.nft?.collection.id),
+                      )
+                      return (
+                        <ActivityRow
+                          key={`${activity.marketEvent}#${activity.nft.tokenId}#${activity.timestamp}#${activity.tx}`}
+                          activity={activity}
+                          nft={nftMeta}
+                          bnbBusdPrice={bnbBusdPrice}
+                        />
+                      )
+                    })
+                  )}
+                </tbody>
+              </Table>
+            </>
+          )}
+        </Container>
+      </Card>
       {pagination}
     </Box>
   )

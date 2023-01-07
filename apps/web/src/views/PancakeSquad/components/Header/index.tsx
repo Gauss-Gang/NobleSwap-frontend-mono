@@ -150,7 +150,12 @@ const PancakeSquadHeader: React.FC<React.PropsWithChildren<PancakeSquadHeaderTyp
                     )}
                   </>
                 )}
-                {isLoading && (userStatus === UserStatusEnum.UNCONNECTED ? <ConnectWalletButton /> : <Spinner />)}
+                {isLoading &&
+                  (userStatus === UserStatusEnum.UNCONNECTED ? (
+                    <ConnectWalletButton variant="gradientRedGrape" />
+                  ) : (
+                    <Spinner />
+                  ))}
               </Flex>
             </Flex>
           </StyledSquadEventContainer>

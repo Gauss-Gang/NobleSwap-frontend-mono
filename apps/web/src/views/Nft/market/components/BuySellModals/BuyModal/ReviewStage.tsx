@@ -82,7 +82,7 @@ const ReviewStage: React.FC<React.PropsWithChildren<ReviewStageProps>> = ({
           </Text>
           {!account ? (
             <Flex justifySelf="flex-end">
-              <ConnectWalletButton scale="sm" />
+              <ConnectWalletButton scale="sm" variant="gradientRedGrape" />
             </Flex>
           ) : (
             <BnbAmountCell

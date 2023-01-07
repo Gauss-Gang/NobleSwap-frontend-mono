@@ -11,8 +11,8 @@ export const ItemImage = styled(Image)`
 `
 
 export const SearchWrapper = styled(Flex)`
-  background: ${({ theme }) => theme.colors.dropdown};
-  border-radius: 24px 24px 0 0;
+  background: ${({ theme }) => theme.colors.nobleDarkBlue};
+  border-radius: 20px 0;
 `
 
 export const FilterButton = styled(Flex)`

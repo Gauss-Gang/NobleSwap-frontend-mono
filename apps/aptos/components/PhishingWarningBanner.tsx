@@ -42,10 +42,12 @@ const SpeechBubble = styled.div`
 const PhishingWarningBanner: React.FC<React.PropsWithChildren> = () => {
   const { t } = useTranslation()
   const [, hideBanner] = usePhishingBanner()
+  
   const warningTextAsParts = useMemo(() => {
     const warningText = t("please make sure you're visiting %domain% - check the URL carefully.", { domain: DOMAIN })
     return warningText.split(/(https:\/\/aptos.pancakeswap.finance)/g)
   }, [t])
+
   const warningTextComponent = (
     <>
       <Text as="span" color="warning" small bold textTransform="uppercase">

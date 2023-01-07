@@ -20,6 +20,9 @@ export interface ToggleProps extends InputHTMLAttributes<HTMLInputElement> {
 
 export interface HandleProps {
   scale: Scales;
+  $checked: boolean;
+  $checkedColor: keyof Colors;
+  $defaultColor: keyof Colors;
 }
 
 export interface InputProps {

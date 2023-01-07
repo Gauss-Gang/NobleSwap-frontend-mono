@@ -1,27 +1,20 @@
-import styled from 'styled-components'
-import { Box, Button, Flex, Heading, LinkExternal, PageHeader, NextLinkFromReactRouter } from '@pancakeswap/uikit'
-import { useAccount } from 'wagmi'
 import { useTranslation } from '@pancakeswap/localization'
-import SectionsWithFoldableText from 'components/FoldableSection/SectionsWithFoldableText'
-import PageSection from 'components/PageSection'
+import { Button, Flex, Heading, NextLinkFromReactRouter, PageHeader } from '@pancakeswap/uikit'
 import { PageMeta } from 'components/Layout/Page'
-import { useGetCollections } from 'state/nftMarket/hooks'
-import { FetchStatus } from 'config/constants/types'
 import PageLoader from 'components/Loader/PageLoader'
-import useTheme from 'hooks/useTheme'
+import PageSection from 'components/PageSection'
+import { FetchStatus } from 'config/constants/types'
 import orderBy from 'lodash/orderBy'
+import { useGetCollections } from 'state/nftMarket/hooks'
+import styled from 'styled-components'
+import { useAccount } from 'wagmi'
 import SearchBar from '../components/SearchBar'
 import Collections from './Collections'
 import Newest from './Newest'
-import config from './config'
-
-const Gradient = styled(Box)`
-  background: ${({ theme }) => theme.colors.gradientCardHeader};
-`
 
 const StyledPageHeader = styled(PageHeader)`
   margin-bottom: -40px;
-  padding-bottom: 40px;
+  padding-bottom: 0px;
 `
 
 const StyledHeaderInner = styled(Flex)`
@@ -52,7 +45,6 @@ const StyledHeaderInner = styled(Flex)`
 const Home = () => {
   const { t } = useTranslation()
   const { address: account } = useAccount()
-  const { theme } = useTheme()
   const { data: collections, status } = useGetCollections()
 
   const hotCollections = orderBy(
@@ -93,10 +85,9 @@ const Home = () => {
       ) : (
         <PageSection
           innerProps={{ style: { margin: '0', width: '100%' } }}
-          background={theme.colors.background}
+          background="transparent"
           index={1}
-          concaveDivider
-          dividerPosition="top"
+          hasCurvedDivider={false}
         >
           <Collections
             key="newest-collections"
@@ -113,12 +104,12 @@ const Home = () => {
           <Newest />
         </PageSection>
       )}
-      <Gradient p="64px 0">
+      {/* <Gradient p="64px 0">
         <SectionsWithFoldableText header={t('FAQs')} config={config(t)} m="auto" />
         <LinkExternal href="https://docs.pancakeswap.finance/contact-us/nft-market-applications" mx="auto" mt="16px">
           {t('Apply to NFT Marketplace!')}
         </LinkExternal>
-      </Gradient>
+      </Gradient> */}
     </>
   )
 }

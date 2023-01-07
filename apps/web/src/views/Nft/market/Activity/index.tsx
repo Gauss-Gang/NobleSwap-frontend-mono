@@ -1,6 +1,6 @@
-import { Card, Heading, PageHeader } from '@pancakeswap/uikit'
-import Page from 'components/Layout/Page'
 import { useTranslation } from '@pancakeswap/localization'
+import { Heading, PageHeader } from '@pancakeswap/uikit'
+import Page from 'components/Layout/Page'
 import ActivityHistory from '../ActivityHistory/ActivityHistory'
 
 const Activity = () => {
@@ -14,9 +14,7 @@ const Activity = () => {
         </Heading>
       </PageHeader>
       <Page>
-        <Card>
-          <ActivityHistory />
-        </Card>
+        <ActivityHistory />
       </Page>
     </>
   )

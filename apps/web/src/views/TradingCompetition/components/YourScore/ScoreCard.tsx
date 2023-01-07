@@ -133,7 +133,7 @@ const ScoreCard: React.FC<React.PropsWithChildren<ScoreCardProps>> = ({
             {hasRegistered && (currentPhase.state === CLAIM || currentPhase.state === OVER) && userPrizeGrid}
             {!account && (
               <Flex mt="24px" justifyContent="center">
-                <ConnectWalletButton />
+                <ConnectWalletButton variant="gradientRedGrape" />
               </Flex>
             )}
           </>

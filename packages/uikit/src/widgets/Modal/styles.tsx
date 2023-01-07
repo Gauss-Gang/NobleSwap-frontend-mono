@@ -11,7 +11,6 @@ export const mobileFooterHeight = 73;
 export const ModalHeader = styled.div<{ background?: string }>`
   align-items: center;
   background: transparent;
-  border-bottom: 1px solid ${({ theme }) => theme.colors.cardBorder};
   display: flex;
   padding: 12px 24px;
 
@@ -58,8 +57,7 @@ export const ModalContainer = styled(MotionBox)<{ $minWidth: string }>`
   overflow: hidden;
   background: ${({ theme }) => theme.modal.background};
   box-shadow: 0px 20px 36px -8px rgba(14, 14, 44, 0.1), 0px 1px 1px rgba(0, 0, 0, 0.05);
-  border: 1px solid ${({ theme }) => theme.colors.cardBorder};
-  border-radius: 32px 32px 0px 0px;
+  border-radius: 20px 0;
   width: 100%;
   max-height: calc(var(--vh, 1vh) * 100);
   z-index: ${({ theme }) => theme.zIndices.modal};
@@ -73,7 +71,7 @@ export const ModalContainer = styled(MotionBox)<{ $minWidth: string }>`
     width: auto;
     position: auto;
     bottom: auto;
-    border-radius: 32px;
+    border-radius: 20px 0;
     max-height: 100vh;
   }
 `;

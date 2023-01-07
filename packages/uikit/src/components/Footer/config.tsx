@@ -8,69 +8,53 @@ export const footerLinks: FooterLinkType[] = [
     items: [
       {
         label: "Contact",
-        href: "https://docs.pancakeswap.finance/contact-us",
-      },
-      {
-        label: "Blog",
-        href: "https://medium.com/pancakeswap",
+        href: "mailto:support@gaussgang.com",
       },
       {
         label: "Community",
-        href: "https://docs.pancakeswap.finance/contact-us/telegram",
+        href: "https://discord.gg/gauss",
       },
       {
-        label: "CAKE",
-        href: "https://docs.pancakeswap.finance/tokenomics/cake",
-      },
-      {
-        label: "—",
-      },
-      {
-        label: "Online Store",
-        href: "https://pancakeswap.creator-spring.com/",
-        isHighlighted: true,
+        label: "Litepaper",
+        href: "https://docs.gaussgang.com/home/important-docs/whitepaper/what-is-gauss",
       },
     ],
   },
-  {
-    label: "Help",
-    items: [
-      {
-        label: "Customer",
-        href: "Support https://docs.pancakeswap.finance/contact-us/customer-support",
-      },
-      {
-        label: "Troubleshooting",
-        href: "https://docs.pancakeswap.finance/help/troubleshooting",
-      },
-      {
-        label: "Guides",
-        href: "https://docs.pancakeswap.finance/get-started",
-      },
-    ],
-  },
+  // {
+  //   label: "Help",
+  //   items: [
+  //     {
+  //       label: "Customer",
+  //       href: "Support https://docs.pancakeswap.finance/contact-us/customer-support",
+  //     },
+  //     {
+  //       label: "Troubleshooting",
+  //       href: "https://docs.pancakeswap.finance/help/troubleshooting",
+  //     },
+  //     {
+  //       label: "Guides",
+  //       href: "https://docs.pancakeswap.finance/get-started",
+  //     },
+  //   ],
+  // },
   {
     label: "Developers",
     items: [
       {
         label: "Github",
-        href: "https://github.com/pancakeswap",
+        href: "https://github.com/Gauss-Gang/NobleSwap-frontend-mono",
       },
       {
         label: "Documentation",
-        href: "https://docs.pancakeswap.finance",
+        href: "https://docs.gaussgang.com/",
       },
       {
         label: "Bug Bounty",
-        href: "https://app.gitbook.com/@pancakeswap-1/s/pancakeswap/code/bug-bounty",
+        href: "/",
       },
       {
         label: "Audits",
-        href: "https://docs.pancakeswap.finance/help/faq#is-pancakeswap-safe-has-pancakeswap-been-audited",
-      },
-      {
-        label: "Careers",
-        href: "https://docs.pancakeswap.finance/hiring/become-a-chef",
+        href: "/",
       },
     ],
   },
@@ -80,7 +64,7 @@ export const socials = [
   {
     label: "Twitter",
     icon: TwitterIcon,
-    href: "https://twitter.com/pancakeswap",
+    href: "https://twitter.com/gaussgang",
   },
   {
     label: "Telegram",
@@ -88,95 +72,95 @@ export const socials = [
     items: [
       {
         label: "English",
-        href: "https://t.me/pancakeswap",
+        href: "https://t.me/GaussGang",
       },
       {
         label: "Bahasa Indonesia",
-        href: "https://t.me/PancakeSwapIndonesia",
+        href: "https://t.me/GaussGangIndonesia",
       },
       {
         label: "中文",
-        href: "https://t.me/PancakeSwap_CN",
+        href: "https://t.me/GaussGang_CN",
       },
       {
         label: "Tiếng Việt",
-        href: "https://t.me/PancakeSwapVN",
+        href: "https://t.me/GaussGangVN",
       },
       {
         label: "Italiano",
-        href: "https://t.me/pancakeswap_ita",
+        href: "https://t.me/GaussGang_ita",
       },
       {
         label: "русский",
-        href: "https://t.me/pancakeswap_ru",
+        href: "https://t.me/GaussGang_ru",
       },
       {
         label: "Türkiye",
-        href: "https://t.me/pancakeswapturkiye",
+        href: "https://t.me/GaussGangturkiye",
       },
       {
         label: "Português",
-        href: "https://t.me/PancakeSwapPortuguese",
+        href: "https://t.me/GaussGangPortuguese",
       },
       {
         label: "Español",
-        href: "https://t.me/PancakeswapEs",
+        href: "https://t.me/GaussGangEs",
       },
       {
         label: "日本語",
-        href: "https://t.me/pancakeswapjp",
+        href: "https://t.me/GaussGangjp",
       },
       {
         label: "Français",
-        href: "https://t.me/pancakeswapfr",
+        href: "https://t.me/GaussGangfr",
       },
       {
         label: "Deutsch",
-        href: "https://t.me/PancakeSwap_DE",
+        href: "https://t.me/GaussGang_DE",
       },
       {
         label: "Filipino",
-        href: "https://t.me/Pancakeswap_Ph",
+        href: "https://t.me/GaussGang_Ph",
       },
       {
         label: "ქართული ენა",
-        href: "https://t.me/PancakeSwapGeorgia",
+        href: "https://t.me/GaussGangGeorgia",
       },
       {
         label: "हिन्दी",
-        href: "https://t.me/PancakeSwapINDIA",
+        href: "https://t.me/GaussGangINDIA",
       },
       {
         label: "Announcements",
-        href: "https://t.me/PancakeSwapAnn",
+        href: "https://t.me/GaussGangAnn",
       },
     ],
   },
-  {
-    label: "Reddit",
-    icon: RedditIcon,
-    href: "https://reddit.com/r/pancakeswap",
-  },
+  // {
+  //   label: "Reddit",
+  //   icon: RedditIcon,
+  //   href: "https://reddit.com/r/pancakeswap",
+  // },
   {
     label: "Instagram",
     icon: InstagramIcon,
-    href: "https://instagram.com/pancakeswap_official",
+    href: "https://www.instagram.com/gauss.gang/",
   },
   {
     label: "Github",
     icon: GithubIcon,
-    href: "https://github.com/pancakeswap/",
+    href: "https://github.com/Gauss-Gang/",
   },
   {
     label: "Discord",
     icon: DiscordIcon,
-    href: "https://discord.gg/pancakeswap",
+    href: "https://discord.com/invite/gauss",
   },
-  {
-    label: "Medium",
-    icon: MediumIcon,
-    href: "https://medium.com/pancakeswap",
-  },
+  // {
+  //   label: "Medium",
+  //   icon: MediumIcon,
+  //   href: "https://medium.com/pancakeswap",
+  // },
 ];
 
 export const langs: Language[] = [...Array(20)].map((_, i) => ({

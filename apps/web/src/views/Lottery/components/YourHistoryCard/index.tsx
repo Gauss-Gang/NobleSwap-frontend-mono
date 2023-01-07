@@ -120,7 +120,7 @@ const YourHistoryCard: React.FC<React.PropsWithChildren<YourHistoryCardProps>> =
           <Text textAlign="center" color="textSubtle" mb="16px">
             {t('Connect your wallet to check your history')}
           </Text>
-          <ConnectWalletButton />
+          <ConnectWalletButton variant="gradientRedGrape" />
         </StyledCardBody>
       )
     }

@@ -187,7 +187,7 @@ const IfoSteps: React.FC<React.PropsWithChildren<TypeProps>> = ({
 
     const renderAccountStatus = () => {
       if (!account) {
-        return <ConnectWalletButton />
+        return <ConnectWalletButton variant="gradientRedGrape" />
       }
 
       if (isStepValid) {

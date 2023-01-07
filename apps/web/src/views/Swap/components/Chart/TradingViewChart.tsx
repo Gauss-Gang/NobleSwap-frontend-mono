@@ -1,4 +1,4 @@
-import { Box, BunnyPlaceholderIcon, Flex, Text } from '@pancakeswap/uikit'
+import { Box, NobleSwapPlaceholder, Flex, Text } from '@pancakeswap/uikit'
 import TradingView, { useTradingViewEvent } from 'components/TradingView'
 import { useTranslation } from '@pancakeswap/localization'
 import { useDebounce } from '@pancakeswap/hooks'
@@ -83,7 +83,7 @@ const TradingViewChart = ({ outputSymbol, inputSymbol, isDark, onTwChartSymbol }
     <Box height="100%" width="100%" pt="4px" position="relative">
       {hasNoData && (
         <Flex height="100%" justifyContent="center" alignItems="center" flexDirection="column">
-          <BunnyPlaceholderIcon width="96px" height="96px" />
+          <NobleSwapPlaceholder width="96px" height="96px" />
           <Text bold fontSize="20px" color="textDisabled" mt="16px">
             {t('TradingView chart not available')}
           </Text>

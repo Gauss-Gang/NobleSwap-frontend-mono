@@ -226,7 +226,7 @@ const BattleCta: React.FC<React.PropsWithChildren<CompetitionProps>> = ({
                   {getButtonText()}
                 </StyledButton>
               ) : (
-                <ConnectWalletButton />
+                <ConnectWalletButton variant="gradientRedGrape" />
               )}
             </Flex>
           )}

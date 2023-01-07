@@ -5,7 +5,7 @@ import {
   Text,
   Flex,
   Box,
-  BunnyPlaceholderIcon,
+  NobleSwapPlaceholder,
   Skeleton,
   Button,
   useModal,
@@ -130,7 +130,7 @@ const AuctionLeaderboardTable: React.FC<React.PropsWithChildren<{ bidders: Bidde
     return (
       <Flex justifyContent="center" alignItems="center" flexDirection="column" py="24px">
         <Text mb="8px">{noBidsText}</Text>
-        <BunnyPlaceholderIcon height="64px" width="64px" />
+        <NobleSwapPlaceholder height="64px" width="64px" />
       </Flex>
     )
   }

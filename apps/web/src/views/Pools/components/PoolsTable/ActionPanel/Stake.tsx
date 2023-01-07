@@ -201,7 +201,7 @@ const Staked: React.FunctionComponent<React.PropsWithChildren<StackedActionProps
           </Text>
         </ActionTitles>
         <ActionContent>
-          <ConnectWalletButton width="100%" />
+          <ConnectWalletButton width="100%" variant="gradientRedGrape" />
         </ActionContent>
       </ActionContainer>
     )

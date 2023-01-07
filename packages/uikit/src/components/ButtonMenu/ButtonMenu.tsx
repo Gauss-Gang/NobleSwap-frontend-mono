@@ -18,7 +18,7 @@ const getBorderColor = ({ theme, variant }: StyledButtonMenuProps) => {
 
 const StyledButtonMenu = styled.div<StyledButtonMenuProps>`
   background-color: ${getBackgroundColor};
-  border-radius: 16px;
+  border-radius: 7px;
   display: ${({ fullWidth }) => (fullWidth ? "flex" : "inline-flex")};
   border: 1px solid ${getBorderColor};
   width: ${({ fullWidth }) => (fullWidth ? "100%" : "auto")};
@@ -29,9 +29,9 @@ const StyledButtonMenu = styled.div<StyledButtonMenuProps>`
   }
 
   & > button + button,
-  & > a + a {
-    margin-left: 2px; // To avoid focus shadow overlap
-  }
+  // & > a + a {
+  //   margin-left: 2px; // To avoid focus shadow overlap
+  // }
 
   & > button,
   & a {

@@ -73,7 +73,7 @@ const CheckPrizesSection = () => {
             <Heading textAlign="center" color="#F4EEFF" mb="24px">
               {t("to check if you've won!")}
             </Heading>
-            <ConnectWalletButton width="190px" />
+            <ConnectWalletButton width="190px" variant="gradientRedGrape" />
           </Flex>
           <TicketImage src="/images/lottery/ticket-r.png" alt="lottery ticket" />
         </Flex>

@@ -287,7 +287,7 @@ const CreateProposal = () => {
                     </Button>
                   </>
                 ) : (
-                  <ConnectWalletButton width="100%" type="button" />
+                  <ConnectWalletButton width="100%" type="button" variant="gradientRedGrape" />
                 )}
               </CardBody>
             </Card>

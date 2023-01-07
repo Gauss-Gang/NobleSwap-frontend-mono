@@ -19,11 +19,11 @@ interface ThemedIconLabel {
 const getThemeColor = ({ theme, variant = variants.INFO }: ThemedIconLabel) => {
   switch (variant) {
     case variants.DANGER:
-      return theme.colors.failure;
+      return theme.colors.nobleRed;
     case variants.WARNING:
-      return theme.colors.warning;
+      return theme.colors.noblePurple;
     case variants.SUCCESS:
-      return theme.colors.success;
+      return theme.colors.nobleGreen;
     case variants.INFO:
     default:
       return theme.colors.secondary;
@@ -83,7 +83,7 @@ const Alert: React.FC<React.PropsWithChildren<AlertProps>> = ({ title, children,
         <Icon color="currentColor" width="24px" />
       </IconLabel>
       <Details hasHandler={!!onClick}>
-        <Text bold>{title}</Text>
+        <Text color="nobleDarkBlue" bold>{title}</Text>
         {typeof children === "string" ? (
           <Text style={{ wordBreak: "break-all" }} as="p">
             {children}

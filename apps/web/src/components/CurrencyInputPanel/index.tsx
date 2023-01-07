@@ -51,10 +51,12 @@ const InputPanel = styled.div`
   background-color: ${({ theme }) => theme.colors.backgroundAlt};
   z-index: 1;
 `
-const Container = styled.div<{ zapStyle?: ZapStyle; error?: boolean }>`
+const Container = styled.div<{ zapStyle?: ZapStyle; error?: boolean; isSkewReversed?: boolean }>`
   border-radius: 16px;
   background-color: ${({ theme }) => theme.colors.input};
   box-shadow: ${({ theme, error }) => theme.shadows[error ? 'warning' : 'inset']};
+  ${({ isSkewReversed }) => (isSkewReversed ? 'border-radius: 0 0 0 20px;' : 'border-radius: 0 20px 0 0;')}
+
   ${({ zapStyle }) =>
     !!zapStyle &&
     css`
@@ -96,6 +98,7 @@ interface CurrencyInputPanelProps {
   error?: boolean
   showBUSD?: boolean
   tokensToShow?: Token[]
+  isSkewReversed?: boolean
 }
 export default function CurrencyInputPanel({
   value,
@@ -122,6 +125,7 @@ export default function CurrencyInputPanel({
   error,
   showBUSD,
   tokensToShow,
+  isSkewReversed
 }: CurrencyInputPanelProps) {
   const { address: account } = useAccount()
   const selectedCurrencyBalance = useCurrencyBalance(account ?? undefined, currency ?? undefined)
@@ -220,7 +224,7 @@ export default function CurrencyInputPanel({
         )}
       </Flex>
       <InputPanel>
-        <Container as="label" zapStyle={zapStyle} error={error}>
+        <Container as="label" zapStyle={zapStyle} error={error} isSkewReversed={isSkewReversed}>
           <LabelRow>
             <NumericalInput
               error={error}

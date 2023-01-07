@@ -4,12 +4,12 @@ import Container from "../Layouts/Container";
 import { PageHeaderProps } from "./types";
 
 const Outer = styled(Box)<{ background?: string }>`
-  background: ${({ theme, background }) => background || theme.colors.gradientBubblegum};
+  background: ${({ theme, background }) => background || theme.colors.gradientNobleDarkBlue};
 `;
 
 const Inner = styled(Container)`
-  padding-top: 32px;
-  padding-bottom: 32px;
+  padding-top: 60px;
+  padding-bottom: 60px;
   position: relative;
 `;
 

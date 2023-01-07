@@ -20,6 +20,11 @@ export const additionalColors = {
   gold: '#FFC700',
   silver: '#B2B2B2',
   bronze: '#E7974D',
+  nobleDarkBlue: "#07002F",
+  nobleLightBlue: "#6587DD",
+  nobleRed: "#E13F48",
+  noblePurple: "#873AF9",
+  nobleGreen: "#50DEFF",
 }
 
 export const lightColors = {
@@ -52,6 +57,8 @@ export const lightColors = {
   gradientVioletAlt: 'linear-gradient(180deg, #CBD7EF 0%, #9A9FD0 100%)',
   gradientGold: 'linear-gradient(180deg, #FFD800 0%, #FDAB32 100%)',
   gradientBold: 'linear-gradient(#53DEE9, #7645D9)',
+  gradientRedGrape: "radial-gradient(120.48% 164.65% at -16.45% 47.52%, #EB533F 0%, #DB2456 27.33%, #833CFF 100%)",
+  gradientNobleDarkBlue: "linear-gradient(90deg, #0D2464 0%, #1F369D 100%)",
 }
 
 export const darkColors = {
@@ -85,4 +92,6 @@ export const darkColors = {
   gradientVioletAlt: 'linear-gradient(180deg, #434575 0%, #66578D 100%)',
   gradientGold: 'linear-gradient(180deg, #FFD800 0%, #FDAB32 100%)',
   gradientBold: 'linear-gradient(#53DEE9, #9A6AFF)',
+  gradientRedGrape: "radial-gradient(120.48% 164.65% at -16.45% 47.52%, #EB533F 0%, #DB2456 27.33%, #833CFF 100%)",
+  gradientNobleDarkBlue: "linear-gradient(90deg, #0D2464 0%, #1F369D 100%)",
 }

@@ -17,6 +17,8 @@ export const variants = {
   SUBTLE: "subtle",
   SUCCESS: "success",
   LIGHT: "light",
+  NOBLE_RED_GRAPE: "gradientRedGrape",
+  NOBLE_SKEWED: "nobleSkewed",
 } as const;
 
 export type Scale = typeof scales[keyof typeof scales];
@@ -26,6 +28,7 @@ export interface BaseButtonProps extends LayoutProps, SpaceProps {
   as?: "a" | "button" | ElementType;
   external?: boolean;
   isLoading?: boolean;
+  skewed?: boolean;
   scale?: Scale;
   variant?: Variant;
   disabled?: boolean;

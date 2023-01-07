@@ -11,6 +11,13 @@ const inputRegex = RegExp(`^\\d*(?:\\\\[.])?\\d*$`) // match escaped "." charact
 
 const OrderPriceInput = styled(Input)`
   text-align: right;
+  border-radius: 7px;
+  background-color: ${({ theme }) => theme.colors.tertiary};
+
+  &:disabled {
+    background-color: ${({ theme }) => theme.colors.tertiary};
+    opacity: 0.7;
+  }
 `
 
 const LabelContainer = styled(Flex)`

@@ -314,7 +314,7 @@ const SetPositionCard: React.FC<React.PropsWithChildren<SetPositionCardProps>> =
               </Button>
             )
           ) : (
-            <ConnectWalletButton className="swiper-no-swiping" width="100%" />
+            <ConnectWalletButton className="swiper-no-swiping" width="100%" variant="gradientRedGrape" />
           )}
         </Box>
         <Text as="p" fontSize="12px" lineHeight={1} color="textSubtle">

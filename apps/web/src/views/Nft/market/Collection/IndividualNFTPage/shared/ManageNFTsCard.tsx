@@ -189,7 +189,7 @@ const ManageNFTsCard: React.FC<React.PropsWithChildren<ManageNftsCardProps>> = (
     <Box pt="16px">
       {!account && (
         <Flex mb="16px" justifyContent="center">
-          <ConnectWalletButton />
+          <ConnectWalletButton variant="gradientRedGrape" />
         </Flex>
       )}
       {account && userHasNoNfts && (

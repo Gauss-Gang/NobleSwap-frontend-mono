@@ -368,7 +368,7 @@ export default function AddStableLiquidity({ currencyA, currencyB }) {
               </RowBetween>
 
               {!account ? (
-                <ConnectWalletButton />
+                <ConnectWalletButton variant="gradientRedGrape" />
               ) : isWrongNetwork ? (
                 <CommitButton />
               ) : (

@@ -205,7 +205,7 @@ export default function SwapCommitButton({
   }
 
   if (!account) {
-    return <ConnectWalletButton width="100%" />
+    return <ConnectWalletButton width="100%" variant="gradientRedGrape" />
   }
 
   if (showWrap) {

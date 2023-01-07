@@ -11,7 +11,7 @@ import {
   FlexProps,
   HelpIcon,
   useTooltip,
-  BunnyPlaceholderIcon,
+  NobleSwapPlaceholder,
   Message,
   MessageText,
 } from '@pancakeswap/uikit'
@@ -36,7 +36,7 @@ const TokenSection: React.FC<React.PropsWithChildren<TokenSectionProps>> = ({
 }) => {
   const renderTokenComponent = () => {
     if (!primaryToken) {
-      return <BunnyPlaceholderIcon width={32} mr="16px" />
+      return <NobleSwapPlaceholder width={32} mr="16px" />
     }
 
     if (primaryToken && secondaryToken) {
@@ -180,7 +180,7 @@ const IfoCardTokens: React.FC<React.PropsWithChildren<IfoCardTokensProps>> = ({
     if (status === 'finished') {
       return userPoolCharacteristics.amountTokenCommittedInLP.isEqualTo(0) ? (
         <Flex flexDirection="column" alignItems="center">
-          <BunnyPlaceholderIcon width={80} mb="16px" />
+          <NobleSwapPlaceholder width={80} mb="16px" />
           <Text fontWeight={600}>{t('You didn’t participate in this sale!')}</Text>
         </Flex>
       ) : (

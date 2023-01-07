@@ -18,23 +18,6 @@ const Wrapper = styled.div<{ $isSide: boolean }>`
   }
 `;
 
-const BubbleWrapper = styled(Flex)`
-  svg {
-    fill: ${({ theme }) => theme.colors.textSubtle};
-    transition: background-color 0.2s, opacity 0.2s;
-  }
-  &:hover {
-    svg {
-      opacity: 0.65;
-    }
-  }
-  &:active {
-    svg {
-      opacity: 0.85;
-    }
-  }
-`;
-
 type FooterVariant = "default" | "side";
 
 const Footer: React.FC<
@@ -77,7 +60,7 @@ const Footer: React.FC<
           width={["100%", "100%", "100%", isSide ? "100%" : "auto"]}
           justifyContent={["center", "center", "center", "flex-end"]}
         >
-          <BubbleWrapper>
+          {/* <BubbleWrapper>
             <Button id="clickExchangeHelp" as="a" external href={helpUrl} variant="subtle">
               {t("Need help ?")}
             </Button>
@@ -85,7 +68,7 @@ const Footer: React.FC<
               <path d="M0 16V0C0 0 3 1 6 1C9 1 16 -2 16 3.5C16 10.5 7.5 16 0 16Z" />
             </Svg>
           </BubbleWrapper>
-          {helpImage}
+          {helpImage} */}
         </Flex>
       )}
     </Wrapper>

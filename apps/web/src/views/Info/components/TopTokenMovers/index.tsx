@@ -19,15 +19,18 @@ const CardWrapper = styled(NextLinkFromReactRouter)`
 `
 
 const TopMoverCard = styled(Box)`
-  border: 1px solid ${({ theme }) => theme.colors.cardBorder};
-  border-radius: ${({ theme }) => theme.radii.card};
+  border: 1px solid ${({ theme }) => theme.colors.nobleLightBlue};
+  border-radius: 20px 0;
   padding: 16px;
+  height: 100%;
 `
 
 export const ScrollableRow = styled.div`
   width: 100%;
   overflow-x: auto;
   padding: 16px 0;
+  display: flex;
+  align-items: stretch;
   white-space: nowrap;
   ::-webkit-scrollbar {
     display: none;

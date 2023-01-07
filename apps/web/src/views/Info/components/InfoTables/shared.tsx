@@ -10,12 +10,8 @@ export const TableWrapper = styled(Flex)`
   padding-top: 16px;
   flex-direction: column;
   gap: 16px;
-  background-color: ${({ theme }) => theme.card.background};
-  border-radius: ${({ theme }) => theme.radii[0]};
-  border: 1px solid ${({ theme }) => theme.colors.cardBorder};
-  ${({ theme }) => theme.mediaQueries.md} {
-    border-radius: ${({ theme }) => theme.radii.card};
-  }
+  background-color: ${({ theme }) => theme.colors.nobleDarkBlue};
+  border-radius: 20px 0;
 `
 
 export const PageButtons = styled.div`
@@ -37,6 +33,6 @@ export const Arrow = styled.div`
 
 export const Break = styled.div`
   height: 1px;
-  background-color: ${({ theme }) => theme.colors.cardBorder};
+  background-color: ${({ theme }) => theme.colors.nobleLightBlue};
   width: 100%;
 `

@@ -827,7 +827,7 @@ export default function RemoveLiquidity({ currencyA, currencyB, currencyIdA, cur
           )}
           <Box position="relative" mt="16px">
             {!account ? (
-              <ConnectWalletButton width="100%" />
+              <ConnectWalletButton width="100%" variant="gradientRedGrape" />
             ) : isWrongNetwork ? (
               <CommitButton width="100%" />
             ) : (

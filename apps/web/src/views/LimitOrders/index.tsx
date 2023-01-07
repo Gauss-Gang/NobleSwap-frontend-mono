@@ -348,25 +348,6 @@ const LimitOrders = () => {
         mb={isSideFooter ? null : '24px'}
         mt={isChartExpanded ? '24px' : null}
       >
-        {!isMobile && (
-          <Flex width={isChartExpanded ? '100%' : '50%'} maxWidth="928px" flexDirection="column">
-            <PriceChartContainer
-              inputCurrencyId={currencyIds.input}
-              inputCurrency={currencies.input}
-              outputCurrencyId={currencyIds.output}
-              outputCurrency={currencies.output}
-              isChartExpanded={isChartExpanded}
-              setIsChartExpanded={setIsChartExpanded}
-              isChartDisplayed={isChartDisplayed}
-              currentSwapPrice={singleTokenPrice}
-              isFullWidthContainer
-            />
-            {isChartDisplayed && <Box mb="48px" />}
-            <Box width="100%">
-              <LimitOrderTable isCompact={isTablet} />
-            </Box>
-          </Flex>
-        )}
         <Flex flexDirection="column" alignItems="center">
           <StyledSwapContainer $isChartExpanded={false}>
             <StyledInputCurrencyWrapper>
@@ -378,7 +359,7 @@ const LimitOrders = () => {
                   isChartDisplayed={isChartDisplayed}
                 />
                 <Wrapper id="limit-order-page" style={{ minHeight: '412px' }}>
-                  <AutoColumn gap="sm">
+                  <AutoColumn gap="md">
                     <CurrencyInputPanel
                       label={independentField === Field.OUTPUT ? t('From (estimated)') : t('From')}
                       value={formattedAmounts.input}
@@ -408,6 +389,7 @@ const LimitOrders = () => {
                       onCurrencySelect={handleOutputSelect}
                       otherCurrency={currencies.output}
                       id="limit-order-currency-output"
+                      isSkewReversed
                       showCommonBases
                       commonBasesType={CommonBasesType.SWAP_LIMITORDER}
                     />
@@ -433,7 +415,7 @@ const LimitOrders = () => {
                   </AutoColumn>
                   <Box mt="0.25rem">
                     {!account ? (
-                      <ConnectWalletButton width="100%" />
+                      <ConnectWalletButton width="100%" variant="gradientRedGrape" />
                     ) : showApproveFlow ? (
                       <Button
                         variant="primary"
@@ -495,6 +477,25 @@ const LimitOrders = () => {
             </Box>
           )}
         </Flex>
+        {!isMobile && (
+          <Flex width={isChartExpanded ? '100%' : '50%'} maxWidth="928px" flexDirection="column">
+            <PriceChartContainer
+              inputCurrencyId={currencyIds.input}
+              inputCurrency={currencies.input}
+              outputCurrencyId={currencyIds.output}
+              outputCurrency={currencies.output}
+              isChartExpanded={isChartExpanded}
+              setIsChartExpanded={setIsChartExpanded}
+              isChartDisplayed={isChartDisplayed}
+              currentSwapPrice={singleTokenPrice}
+              isFullWidthContainer
+            />
+            {isChartDisplayed && <Box mb="48px" />}
+            <Box width="100%">
+              <LimitOrderTable isCompact={isTablet} />
+            </Box>
+          </Flex>
+        )}
       </Flex>
       {/* Fixed position, doesn't take normal DOM space */}
       <BottomDrawer

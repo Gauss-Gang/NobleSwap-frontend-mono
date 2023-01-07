@@ -245,7 +245,7 @@ const PlaceBidModal: React.FC<React.PropsWithChildren<PlaceBidModalProps>> = ({
               buttonArrangement={ButtonArrangement.SEQUENTIAL}
             />
           ) : (
-            <ConnectWalletButton />
+            <ConnectWalletButton variant="gradientRedGrape" />
           )}
         </Flex>
         <Text color="textSubtle" small mt="24px">

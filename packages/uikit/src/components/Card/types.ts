@@ -19,6 +19,8 @@ export type CardTheme = {
     blue: string;
     bubblegum: string;
     violet: string;
+    redGrape: string;
+    nobleDarkBlue: string;
   };
   dropShadow: string;
 };

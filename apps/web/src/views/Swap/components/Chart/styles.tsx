@@ -7,14 +7,13 @@ export const StyledPriceChart = styled(Box)<{
   $isFullWidthContainer?: boolean
 }>`
   border: none;
-  border-radius: 32px;
+  border-radius: 20px 0;
   width: 100%;
   padding-top: 36px;
+  background: ${({ theme }) => theme.colors.nobleDarkBlue};
   ${({ theme }) => theme.mediaQueries.sm} {
     padding-top: 8px;
-    background: ${({ $isDark }) => ($isDark ? 'rgba(39, 38, 44, 0.5)' : 'rgba(255, 255, 255, 0.5)')};
-    border: ${({ theme }) => `1px solid ${theme.colors.cardBorder}`};
-    border-radius: ${({ $isExpanded }) => ($isExpanded ? '0' : '16px')};
+    border: ${({ theme }) => `1px solid ${theme.colors.nobleLightBlue}`};
     width: ${({ $isExpanded, $isFullWidthContainer }) => ($isFullWidthContainer || $isExpanded ? '100%' : '50%')};
     height: ${({ $isExpanded }) => ($isExpanded ? '100%' : '516px')};
   }

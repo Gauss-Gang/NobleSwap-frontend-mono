@@ -36,7 +36,7 @@ const CollectibleCardBody: React.FC<React.PropsWithChildren<CollectibleCardProps
       <Text as="h4" fontWeight="600" mb="8px">
         {name}
       </Text>
-      <Box borderTop="1px solid" borderTopColor="cardBorder" pt="8px">
+      <Box pt="8px">
         {isPancakeBunny && (
           <LowestPriceMetaRow lowestPrice={lowestPrice} isFetching={isFetching} bnbBusdPrice={bnbBusdPrice} />
         )}

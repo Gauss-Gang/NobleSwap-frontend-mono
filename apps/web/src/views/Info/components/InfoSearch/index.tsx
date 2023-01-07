@@ -38,11 +38,11 @@ const Menu = styled.div`
   padding: 1.5rem;
   padding-bottom: 2.5rem;
   position: absolute;
-  background: ${({ theme }) => theme.colors.background};
-  border-radius: 8px;
+  background: ${({ theme }) => theme.colors.nobleDarkBlue};
+  border-radius: 20px 0;
   box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.04), 0px 4px 8px rgba(0, 0, 0, 0.04), 0px 16px 24px rgba(0, 0, 0, 0.04),
     0px 24px 32px rgba(0, 0, 0, 0.04);
-  border: 1px solid ${({ theme }) => theme.colors.secondary};
+  border: 1px solid ${({ theme }) => theme.colors.nobleLightBlue};
   margin-top: 4px;
   ${({ theme }) => theme.mediaQueries.sm} {
     margin-top: 0;
@@ -80,7 +80,7 @@ const ResponsiveGrid = styled.div`
 
 const Break = styled.div`
   height: 1px;
-  background-color: ${({ theme }) => theme.colors.cardBorder};
+  background-color: ${({ theme }) => theme.colors.nobleLightBlue};
   width: 100%;
   margin: 16px 0;
 `
@@ -91,14 +91,14 @@ const HoverText = styled.div`
   margin-top: 16px;
   :hover {
     cursor: pointer;
-    opacity: 0.6;
+    opacity: 0.7;
   }
 `
 
 const HoverRowLink = styled.div`
   :hover {
     cursor: pointer;
-    opacity: 0.6;
+    opacity: 0.7;
   }
 `
 
@@ -115,7 +115,7 @@ const OptionButton = styled.div<{ enabled: boolean }>`
   background-color: ${({ theme, enabled }) => (enabled ? theme.colors.primary : 'transparent')};
   color: ${({ theme, enabled }) => (enabled ? theme.card.background : theme.colors.secondary)};
   :hover {
-    opacity: 0.6;
+    opacity: 0.7;
     cursor: pointer;
   }
 `

@@ -9,7 +9,7 @@ import {
   ArrowForwardIcon,
   ArrowLastIcon,
   IconButton,
-  BunnyPlaceholderIcon,
+  NobleSwapPlaceholder,
   Spinner,
   useMatchBreakpoints,
 } from '@pancakeswap/uikit'
@@ -69,7 +69,7 @@ const AuctionHistory: React.FC<React.PropsWithChildren<AuctionHistoryProps>> = (
     auctionTable = (
       <Flex flexDirection="column" justifyContent="center" alignItems="center" p="24px" height="250px">
         <Text mb="8px">{t('Please specify auction ID')}</Text>
-        <BunnyPlaceholderIcon height="64px" width="64px" />
+        <NobleSwapPlaceholder height="64px" width="64px" />
       </Flex>
     )
   }
@@ -169,7 +169,7 @@ const AuctionHistory: React.FC<React.PropsWithChildren<AuctionHistoryProps>> = (
       ) : (
         <Flex flexDirection="column" justifyContent="center" alignItems="center" p="24px" height="250px">
           <Text mb="8px">{t('No history yet')}</Text>
-          <BunnyPlaceholderIcon height="64px" width="64px" />
+          <NobleSwapPlaceholder height="64px" width="64px" />
         </Flex>
       )}
     </Box>

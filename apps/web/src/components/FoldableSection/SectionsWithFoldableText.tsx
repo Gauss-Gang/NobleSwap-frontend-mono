@@ -11,7 +11,7 @@ const SectionsWithFoldableText: React.FC<React.PropsWithChildren<Props>> = ({ he
   return (
     <Box maxWidth="888px" {...props}>
       <Card>
-        <CardHeader>
+        <CardHeader variant="gradientRedGrape">
           <Heading scale="lg" color="secondary">
             {header}
           </Heading>

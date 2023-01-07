@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import styled from 'styled-components'
-import { Card, Text, Skeleton, CardHeader, Flex, BunnyPlaceholderIcon } from '@pancakeswap/uikit'
+import { Card, Text, Skeleton, CardHeader, Flex, NobleSwapPlaceholder } from '@pancakeswap/uikit'
 import { useTranslation } from '@pancakeswap/localization'
 import { useAppDispatch } from 'state'
 import { setFinishedRoundInfoFetched, fetchPotteryRoundData } from 'state/pottery/index'
@@ -118,7 +118,7 @@ const AllHistoryCard = () => {
       ) : (
         <Flex m="24px auto" flexDirection="column" alignItems="center" width="240px">
           <Text mb="8px">{t('Please specify Round')}</Text>
-          <BunnyPlaceholderIcon height="64px" width="64px" />
+          <NobleSwapPlaceholder height="64px" width="64px" />
         </Flex>
       )}
     </StyledCard>

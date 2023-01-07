@@ -17,7 +17,6 @@ const getTextColor = ({
 export const DropdownMenuItem = styled.button<StyledDropdownMenuItemProps & { $isActive: boolean }>`
   align-items: center;
   border: 0;
-  background: transparent;
   color: ${({ theme, disabled, $isActive }) => getTextColor({ theme, disabled, $isActive })};
   cursor: pointer;
   font-weight: ${({ $isActive = false }) => ($isActive ? "600" : "400")};
@@ -28,6 +27,7 @@ export const DropdownMenuItem = styled.button<StyledDropdownMenuItemProps & { $i
   outline: 0;
   padding-left: 16px;
   padding-right: 16px;
+  border-radius: 20px 0;
   width: 100%;
   pointer-events: ${({ disabled }) => (disabled ? "none" : "inherit")};
 
@@ -45,29 +45,19 @@ export const DropdownMenuItem = styled.button<StyledDropdownMenuItemProps & { $i
   }
 `;
 
-export const StyledDropdownMenuItemContainer = styled.div`
-  &:first-child ${DropdownMenuItem} {
-    border-top-left-radius: 8px;
-    border-top-right-radius: 8px;
-  }
-
-  &:last-child ${DropdownMenuItem} {
-    border-bottom-left-radius: 8px;
-    border-bottom-right-radius: 8px;
-  }
-`;
+export const StyledDropdownMenuItemContainer = styled.div``;
 
 export const DropdownMenuDivider = styled.hr`
   border-color: ${({ theme }) => theme.colors.cardBorder};
   border-style: solid;
   border-width: 1px 0 0;
-  margin: 4px 0;
+  margin: 0;
 `;
 
 export const StyledDropdownMenu = styled.div<{ $isOpen: boolean; $isBottomNav: boolean }>`
-  background-color: ${({ theme }) => theme.card.background};
-  border: 1px solid ${({ theme }) => theme.colors.cardBorder};
-  border-radius: 16px;
+  background-color: ${({ theme }) => theme.colors.nobleDarkBlue};
+  border: 1px solid ${({ theme }) => theme.colors.nobleLightBlue};
+  border-radius: 20px 0;
   padding-bottom: 4px;
   padding-top: 4px;
   pointer-events: auto;

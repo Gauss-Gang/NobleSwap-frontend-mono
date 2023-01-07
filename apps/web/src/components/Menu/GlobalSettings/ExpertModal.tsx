@@ -32,7 +32,7 @@ const ExpertModal: React.FC<React.PropsWithChildren<ExpertModalProps>> = ({
       title={t('Expert Mode')}
       onBack={() => setShowConfirmExpertModal(false)}
       onDismiss={() => setShowConfirmExpertModal(false)}
-      headerBackground="gradientCardHeader"
+      headerBackground="gradientNobleDarkBlue"
       style={{ width: isMobile ? '100%' : '436px' }}
     >
       <Message variant="warning" mb="24px">

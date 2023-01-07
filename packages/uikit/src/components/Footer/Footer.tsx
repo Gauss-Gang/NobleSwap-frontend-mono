@@ -63,7 +63,7 @@ const MenuItem: React.FC<React.PropsWithChildren<FooterProps>> = ({
                       href={href}
                       target="_blank"
                       rel="noreferrer noopener"
-                      color={isHighlighted ? vars.colors.warning : "text"}
+                      color={isHighlighted ? vars.colors.nobleRed : "text"}
                       bold={false}
                     >
                       {label}
@@ -76,7 +76,7 @@ const MenuItem: React.FC<React.PropsWithChildren<FooterProps>> = ({
             </StyledList>
           ))}
           <Box display={["none", null, "block"]}>
-            <LogoWithTextIcon width="160px" />
+            <LogoWithTextIcon width="140px" />
           </Box>
         </Flex>
         <StyledSocialLinks order={[2]} pb={["42px", null, "32px"]} mb={["0", null, "32px"]} />
@@ -86,10 +86,10 @@ const MenuItem: React.FC<React.PropsWithChildren<FooterProps>> = ({
           flexDirection={["column", null, "row"]}
           justifyContent="space-between"
         >
-          <Flex order={[2, null, 1]} alignItems="center">
-            <SkeletonV2 variant="round" width="56px" height="32px" isDataReady={isMounted}>
+          <Flex order={[2, null, 1]} alignItems="start">
+            {/* <SkeletonV2 variant="round" width="56px" height="32px" isDataReady={isMounted}>
               <ThemeSwitcher isDark={isDark} toggleTheme={toggleTheme} />
-            </SkeletonV2>
+            </SkeletonV2> */}
             <LangSelector
               currentLang={currentLang}
               langs={langs}
@@ -102,6 +102,7 @@ const MenuItem: React.FC<React.PropsWithChildren<FooterProps>> = ({
             <Box mr="20px">
               <CakePrice cakePriceUsd={cakePriceUsd} color="textSubtle" />
             </Box>
+            {/* @NOBLE @TODO - Change this HREF */}
             <Button
               data-theme={isDark ? "dark" : "light"}
               as="a"
@@ -109,6 +110,7 @@ const MenuItem: React.FC<React.PropsWithChildren<FooterProps>> = ({
               target="_blank"
               scale="sm"
               endIcon={<ArrowForwardIcon color="backgroundAlt" />}
+              variant="gradientRedGrape"
             >
               {buyCakeLabel}
             </Button>

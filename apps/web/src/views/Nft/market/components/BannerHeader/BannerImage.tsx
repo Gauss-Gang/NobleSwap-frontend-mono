@@ -1,11 +1,11 @@
 import styled from 'styled-components'
 
 const StyledBannerImageWrapper = styled.div`
-  ${({ theme }) => `background-color: ${theme.colors.cardBorder}`};
+  background: ${({ theme }) => theme.colors.nobleDarkBlue};
   flex: none;
   position: relative;
   width: 100%;
-  border-radius: 32px;
+  border-radius: 20px 0;
   height: 123px;
   overflow: hidden;
 

@@ -90,7 +90,7 @@ const ReclaimBidCard: React.FC<React.PropsWithChildren> = () => {
             confirmLabel={t('Reclaim')}
           />
         ) : (
-          <ConnectWalletButton />
+          <ConnectWalletButton variant="gradientRedGrape"/>
         )}
       </CardBody>
     </StyledReclaimBidCard>

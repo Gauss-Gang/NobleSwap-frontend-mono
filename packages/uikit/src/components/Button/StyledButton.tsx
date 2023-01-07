@@ -44,11 +44,11 @@ const getOpacity = ({ $isLoading = false }: TransientButtonProps) => {
 };
 
 const StyledButton = styled.button<BaseButtonProps>`
+  z-index: 1;
   position: relative;
   align-items: center;
   border: 0;
-  border-radius: 16px;
-  box-shadow: 0px -1px 0px 0px rgba(14, 14, 44, 0.4) inset;
+  border-radius: 7px;
   cursor: pointer;
   display: inline-flex;
   font-family: inherit;
@@ -87,7 +87,7 @@ const StyledButton = styled.button<BaseButtonProps>`
       &::before {
         content: "${decorator.text}";
         position: absolute;
-        border-bottom: 20px solid ${decorator.backgroundColor ?? theme.colors.secondary};
+        // border-bottom: 20px solid ${decorator.backgroundColor ?? theme.colors.secondary};
         border-left: 34px solid transparent;
         border-right: 12px solid transparent;
         height: 0;

@@ -58,4 +58,15 @@ export const styleVariants = {
     color: "textSubtle",
     boxShadow: "none",
   },
+  [variants.NOBLE_SKEWED]: {
+    borderRadius: "20px 0px",
+  },
+  [variants.NOBLE_RED_GRAPE]: {
+    borderRadius: "20px 0px",
+    background: "radial-gradient(120.48% 164.65% at -16.45% 47.52%, #EB533F 0%, #DB2456 27.33%, #833CFF 100%)",
+    color: "#fff",
+    ":disabled": {
+      background: "#eeeeee",
+    },
+  },
 };

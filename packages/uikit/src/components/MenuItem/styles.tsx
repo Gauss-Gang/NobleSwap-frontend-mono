@@ -8,15 +8,8 @@ export const StyledMenuItemContainer = styled.div<StyledMenuItemProps>`
     $isActive &&
     $variant === "subMenu" &&
     `
-      &:after{
-        content: "";
-        position: absolute;
-        bottom: 0;
-        height: 4px;
-        width: 100%;
-        background-color: ${theme.colors.primary};
-        border-radius: 2px 2px 0 0;
-      }
+    background-color: ${theme.colors.noblePurple};
+    border-radius: 5px;
     `};
 `;
 
@@ -24,7 +17,7 @@ const StyledMenuItem = styled.a<StyledMenuItemProps>`
   position: relative;
   display: flex;
   align-items: center;
-
+  margin-right: 4px;
   color: ${({ theme, $isActive }) => ($isActive ? theme.colors.secondary : theme.colors.textSubtle)};
   font-size: 16px;
   font-weight: ${({ $isActive }) => ($isActive ? "600" : "400")};
@@ -44,21 +37,29 @@ const StyledMenuItem = styled.a<StyledMenuItemProps>`
     }
   `}
 
-  ${({ $variant }) =>
+  ${({ $variant, theme, $isActive }) =>
     $variant === "default"
       ? `
-    padding: 0 16px;
+    padding: 0 25px;
     height: 48px;
+    transform: translateY(4px);
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+
+    background: ${$isActive ? theme.colors.tertiary : ""};
+
+    &:hover {
+      background: ${theme.colors.tertiary};
+    }
   `
       : `
-    padding: 4px 4px 0px 4px;
+    padding: 5px 10px 5px 10px;
     height: 42px;
+    border-radius:7px;
+    &:hover {
+      background: ${theme.colors.noblePurple};
+    }
   `}
-
-  &:hover {
-    background: ${({ theme }) => theme.colors.tertiary};
-    ${({ $variant }) => $variant === "default" && "border-radius: 16px;"};
-  }
 `;
 
 export default StyledMenuItem;

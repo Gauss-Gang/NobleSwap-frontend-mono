@@ -1,10 +1,10 @@
 import styled from "styled-components";
-import { darkColors } from "../../theme/colors";
+import { darkColors, lightColors } from "../../theme/colors";
 import { Box, Flex } from "../Box";
 import SocialLinks from "./Components/SocialLinks";
 
 export const StyledFooter = styled(Flex)`
-  background: ${darkColors.backgroundAlt};
+  background: ${darkColors.nobleDarkBlue};
 `;
 
 export const StyledList = styled.ul`
@@ -19,6 +19,7 @@ export const StyledList = styled.ul`
 export const StyledListItem = styled.li`
   font-size: 16px;
   margin-bottom: 8px;
+  color: ${lightColors.textSubtle};
   text-transform: capitalize;
 
   &:first-child {
@@ -33,7 +34,7 @@ export const StyledIconMobileContainer = styled(Box)`
 `;
 
 export const StyledToolsContainer = styled(Flex)`
-  border-color: ${darkColors.cardBorder};
+  border-color: ${darkColors.nobleLightBlue};
   border-top-width: 1px;
   border-bottom-width: 1px;
   border-style: solid;
@@ -49,7 +50,7 @@ export const StyledToolsContainer = styled(Flex)`
 `;
 
 export const StyledSocialLinks = styled(SocialLinks)`
-  border-bottom: 1px solid ${darkColors.cardBorder};
+  border-bottom: 1px solid ${darkColors.nobleLightBlue};
 `;
 
 export const StyledText = styled.span`

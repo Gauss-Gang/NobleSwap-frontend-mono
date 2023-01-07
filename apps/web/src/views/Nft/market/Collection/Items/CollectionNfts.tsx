@@ -1,5 +1,5 @@
 import { useCallback } from 'react'
-import { BunnyPlaceholderIcon, AutoRenewIcon, Button, Flex, Grid, Text } from '@pancakeswap/uikit'
+import { NobleSwapPlaceholder, AutoRenewIcon, Button, Flex, Grid, Text } from '@pancakeswap/uikit'
 import { Collection } from 'state/nftMarket/types'
 import { useTranslation } from '@pancakeswap/localization'
 import GridPlaceholder from '../../components/GridPlaceholder'
@@ -66,7 +66,7 @@ const CollectionNfts: React.FC<React.PropsWithChildren<CollectionNftsProps>> = (
         </>
       ) : (
         <Flex alignItems="center" py="48px" flexDirection="column">
-          <BunnyPlaceholderIcon width="96px" mb="24px" />
+          <NobleSwapPlaceholder width="96px" mb="24px" />
           <Text fontWeight={600}>{t('No NFTs found')}</Text>
         </Flex>
       )}

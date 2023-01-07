@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { UserMenuItemProps } from "./types";
 
 export const UserMenuDivider = styled.hr`
-  border-color: ${({ theme }) => theme.colors.cardBorder};
+  border-color: ${({ theme }) => theme.colors.nobleLightBlue};
   border-style: solid;
   border-width: 1px 0 0;
   margin: 4px 0;
@@ -10,9 +10,10 @@ export const UserMenuDivider = styled.hr`
 
 export const UserMenuItem = styled.button<UserMenuItemProps>`
   align-items: center;
+  border-radius: 20px 0;
   border: 0;
   background: transparent;
-  color: ${({ theme, disabled }) => theme.colors[disabled ? "textDisabled" : "textSubtle"]};
+  color: ${({ theme, disabled }) => theme.colors[disabled ? "nobleRed" : "textSubtle"]};
   cursor: pointer;
   display: flex;
   font-size: 16px;

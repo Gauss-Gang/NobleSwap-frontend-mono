@@ -7,10 +7,11 @@ import { ORDER_CATEGORY } from '../../types'
 const Wrapper = styled.div`
   & > div {
     width: 100%;
-    background-color: ${({ theme }) => theme.colors.input};
+    background-color: ${({ theme }) => theme.colors.nobleDarkBlue};
     border: 0;
   }
   & button {
+    border-radius: 0;
     border-bottom-left-radius: 0px;
     border-bottom-right-radius: 0px;
   }
@@ -33,7 +34,7 @@ const OrderTab: React.FC<React.PropsWithChildren<OrderTabProps>> = ({ activeInde
             key={content}
             style={{
               color: idx === activeIndex ? theme.colors.text : theme.colors.textSubtle,
-              backgroundColor: idx === activeIndex ? theme.card.background : theme.colors.input,
+              backgroundColor: idx === activeIndex ? theme.colors.nobleDarkBlue : theme.colors.input,
             }}
           >
             {content}
